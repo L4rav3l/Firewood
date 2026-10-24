@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"/home/laravel/Projects/firewood/Content/pixelfont.spritefont","/home/laravel/Projects/firewood/Content/bin/DesktopGL/Content/pixelfont.xnb","LocalizedFontProcessor","SpriteFontContent",2443,136217,0.4034528
+"/home/laravel/Projects/firewood/Content/PixelifySans-Regular.ttf","/home/laravel/Projects/firewood/Content/bin/DesktopGL/Content/PixelifySans-Regular.ttf","CopyItem","File",51312,51312,0.0005533

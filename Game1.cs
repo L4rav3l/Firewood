@@ -1,0 +1,63 @@
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using firewood;
+
+namespace firewood;
+
+public class Game1 : Game
+{
+    private GraphicsDeviceManager _graphicsDevice;
+    private SpriteBatch _spriteBatch;
+    private SceneManager _sceneManager;
+
+    public Game1()
+    {
+        _graphicsDevice = new GraphicsDeviceManager(this);
+        Content.RootDirectory = "Content";
+        IsMouseVisible = true;
+
+        _graphicsDevice.PreferredBackBufferWidth = 1920;
+        _graphicsDevice.PreferredBackBufferHeight = 1080;
+
+        _graphicsDevice.IsFullScreen = true;
+        _graphicsDevice.ApplyChanges();
+    }
+
+    protected override void Initialize()
+    {
+        _sceneManager = new SceneManager();
+        base.Initialize();
+    }
+
+    protected override void LoadContent()
+    {
+        _spriteBatch = new SpriteBatch(GraphicsDevice);
+        _sceneManager.AddScene(new Menu(GraphicsDevice, _sceneManager, Content), "menu");
+        _sceneManager.ChangeScene("menu");
+    }
+
+    protected override void Update(GameTime gameTime)
+    {
+        _sceneManager.GetCurrentScene().Update(gameTime);
+
+        if(GameData.Quit) {
+            Exit();
+        }
+
+        base.Update(gameTime);
+    }
+
+    protected override void Draw(GameTime gameTime)
+    {
+        GraphicsDevice.Clear(Color.Gray);
+
+        _spriteBatch.Begin(sortMode: SpriteSortMode.FrontToBack, blendState: BlendState.AlphaBlend, samplerState: SamplerState.PointClamp);
+
+        _sceneManager.GetCurrentScene().Draw(_spriteBatch);
+
+        _spriteBatch.End();
+
+        base.Draw(gameTime);
+    }
+}
