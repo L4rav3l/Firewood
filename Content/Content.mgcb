@@ -13,6 +13,15 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin home_tilemap.png
+/copy:home_tilemap.png
+
+#begin home_tilemap.tsx
+/copy:home_tilemap.tsx
+
+#begin house.tmx
+/copy:house.tmx
+
 #begin pixelfont.spritefont
 /importer:FontDescriptionImporter
 /processor:LocalizedFontProcessor
@@ -23,4 +32,7 @@
 
 #begin PixelifySans-Regular.ttf
 /copy:PixelifySans-Regular.ttf
+
+#begin player.png
+/copy:player.png
 

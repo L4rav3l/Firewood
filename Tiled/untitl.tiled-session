@@ -4,9 +4,19 @@
     ],
     "fileStates": {
     },
+    "last.imagePath": "/home/laravel/Projects/firewood/Tiled",
+    "map.height": 30,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 64,
+    "map.tileWidth": 64,
     "openFiles": [
     ],
     "project": "untitl.tiled-project",
     "recentFiles": [
-    ]
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 64,
+        "width": 64
+    }
 }

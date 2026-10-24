@@ -142,6 +142,15 @@
         "runtime": {
           "lib/netcoreapp2.0/_._": {}
         }
+      },
+      "TiledSharp/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/TiledSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/TiledSharp.dll": {}
+        }
       }
     }
   },
@@ -301,12 +310,25 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "TiledSharp/1.0.1": {
+      "sha512": "nY88Ux4Yj4aQ1QEP54KZwQ/QMrXSplGpqOxhab6SgkRminHv0PCrwZ9XBfFj0XSgy9omVFIeFrkig9ldXPKp3g==",
+      "type": "package",
+      "path": "tiledsharp/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/TiledSharp.dll",
+        "tiledsharp.1.0.1.nupkg.sha512",
+        "tiledsharp.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
       "MonoGame.Content.Builder.Task >= 3.8.*",
-      "MonoGame.Framework.DesktopGL >= 3.8.*"
+      "MonoGame.Framework.DesktopGL >= 3.8.*",
+      "TiledSharp >= 1.0.1"
     ]
   },
   "packageFolders": {
@@ -361,6 +383,10 @@
           "MonoGame.Framework.DesktopGL": {
             "target": "Package",
             "version": "[3.8.*, )"
+          },
+          "TiledSharp": {
+            "target": "Package",
+            "version": "[1.0.1, )"
           }
         },
         "imports": [

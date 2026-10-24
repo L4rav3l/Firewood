@@ -36,3 +36,8 @@
 /home/laravel/Projects/firewood/obj/Debug/net9.0/ref/firewood.dll
 /home/laravel/Projects/firewood/bin/Debug/net9.0/Content/Pixelfont.xnb
 /home/laravel/Projects/firewood/bin/Debug/net9.0/Content/PixelifySans-Regular.ttf
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/home_tilemap.png
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/home_tilemap.tsx
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/house.tmx
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/player.png
+/home/laravel/Projects/firewood/bin/Debug/net9.0/TiledSharp.dll

@@ -69,7 +69,8 @@ public class Menu : IScene {
         if(state.IsKeyDown(Keys.Enter) && !GameData.previousState.IsKeyDown(Keys.Enter)) 
         {
             if(_Selected == 0) {
-
+                _sceneManager.AddScene(new Home(_graphicsDevice, _sceneManager, _contentManager), "Home");
+                _sceneManager.ChangeScene("Home");
             } else {
                 GameData.Quit = true;
             }

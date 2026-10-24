@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v9.0": {
       "firewood/1.0.0": {
         "dependencies": {
-          "MonoGame.Framework.DesktopGL": "3.8.6"
+          "MonoGame.Framework.DesktopGL": "3.8.6",
+          "TiledSharp": "1.0.1"
         },
         "runtime": {
           "firewood.dll": {}
@@ -127,6 +128,14 @@
             "fileVersion": "0.10.4.0"
           }
         }
+      },
+      "TiledSharp/1.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/TiledSharp.dll": {
+            "assemblyVersion": "0.15.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
       }
     }
   },
@@ -163,6 +172,13 @@
       "sha512": "sha512-WYnil3DhQHzjCY0dM9I2B3r1vWip90AOuQd25KE4NrjPQBg0tBJFluRLm5YPnO5ZLDmwrfosY8jCQGQRmWI/Pg==",
       "path": "nvorbis/0.10.4",
       "hashPath": "nvorbis.0.10.4.nupkg.sha512"
+    },
+    "TiledSharp/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nY88Ux4Yj4aQ1QEP54KZwQ/QMrXSplGpqOxhab6SgkRminHv0PCrwZ9XBfFj0XSgy9omVFIeFrkig9ldXPKp3g==",
+      "path": "tiledsharp/1.0.1",
+      "hashPath": "tiledsharp.1.0.1.nupkg.sha512"
     }
   }
 }
