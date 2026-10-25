@@ -70,7 +70,7 @@ public class Menu : IScene {
         {
             if(_Selected == 0) {
 
-                GameData.Quests = new string[8];
+                GameData.Quests = new string[10];
                 GameData.Quests[0] = "You are cold. Check your furnace";
                 GameData.Quests[1] = "Find some firewoods in chest.";
                 GameData.Quests[2] = "Get some wood (5/0)";
@@ -79,6 +79,8 @@ public class Menu : IScene {
                 GameData.Quests[5] = "Get some wood (5/3)";
                 GameData.Quests[6] = "Get some wood (5/4)";
                 GameData.Quests[7] = "Go back to the house";
+                GameData.Quests[8] = "Drop all wood to furnace";
+                GameData.Quests[9] = "Go back to sleep";
 
                 GameData.Move = true;
 
@@ -140,7 +142,5 @@ public class Menu : IScene {
         Vector2 Quit = new Vector2((width / 2) - (QuitM.X / 2), ((height / 4) * 2) - (QuitM.Y / 2) + 50);
 
         spriteBatch.DrawString(_pixelfont, quitText, Quit, Color.White);
-
-
     }
 }

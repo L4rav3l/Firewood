@@ -1,7 +1,7 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
 "/home/laravel/Projects/firewood/Content/garden_tilemap.png","/home/laravel/Projects/firewood/Content/bin/DesktopGL/Content/garden_tilemap.png","CopyItem","File",29680,29680,0.0002267
 "/home/laravel/Projects/firewood/Content/garden_tilemap.tsx","/home/laravel/Projects/firewood/Content/bin/DesktopGL/Content/garden_tilemap.tsx","CopyItem","File",240,240,6.77E-05
-"/home/laravel/Projects/firewood/Content/garden.tmx","/home/laravel/Projects/firewood/Content/bin/DesktopGL/Content/garden.tmx","CopyItem","File",25055,25055,5.82E-05
+"/home/laravel/Projects/firewood/Content/garden.tmx","/home/laravel/Projects/firewood/Content/bin/DesktopGL/Content/garden.tmx","CopyItem","File",74880,74880,0.000209
 "/home/laravel/Projects/firewood/Content/home_tilemap.png","/home/laravel/Projects/firewood/Content/bin/DesktopGL/Content/home_tilemap.png","CopyItem","File",35994,35994,0.000494
 "/home/laravel/Projects/firewood/Content/home_tilemap.tsx","/home/laravel/Projects/firewood/Content/bin/DesktopGL/Content/home_tilemap.tsx","CopyItem","File",236,236,6.64E-05
 "/home/laravel/Projects/firewood/Content/house.tmx","/home/laravel/Projects/firewood/Content/bin/DesktopGL/Content/house.tmx","CopyItem","File",5299,5299,0.0001876

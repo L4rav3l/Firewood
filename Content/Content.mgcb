@@ -45,3 +45,6 @@
 #begin player.png
 /copy:player.png
 
+#begin yawn.mp3
+/copy:yawn.mp3
+

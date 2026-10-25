@@ -19,6 +19,7 @@ public class Home : IScene {
     private InteractManager _interactManager;
 
     private SpriteFont _pixelfont;
+    private Song _yawn;
 
     private TmxMap _map;
     private Texture2D _playerTexture;
@@ -29,6 +30,8 @@ public class Home : IScene {
     private List<Rectangle> _furnaceTiles;
     private List<Rectangle> _chestTiles;
 
+    private int _drop = 0;
+
     private bool _isFurnace = false;
     private bool _isBed = false;
     private bool _isChest = false;
@@ -38,7 +41,6 @@ public class Home : IScene {
     private bool _doorDialogues = false;
     private bool _dialogues1 = false;
     private bool _dialogues2 = false;
-    private bool _dialogues3 = false;
 
     private Player _player;
     private Camera2D _camera;
@@ -110,6 +112,7 @@ public class Home : IScene {
         _furnaceTiles = LoadObject("Content/house.tmx", "Furnace");
 
         _pixelfont = _contentManager.Load<SpriteFont>("pixelfont");
+        _yawn = _contentManager.Load<Song>("yawn");
         _playerTexture = _contentManager.Load<Texture2D>("player");
 
         _pixelTexture = new Texture2D(_graphicsDevice, 1, 1);
@@ -183,6 +186,16 @@ public class Home : IScene {
             _dialogues1 = true;
         }
 
+        if(_isFurnace && GameData.QuestionNumber == 8 && _interactManager.Interact(Keys.E) && _isTurned)
+        {
+            _drop++;
+
+            if(_drop >= 5)
+            {
+                GameData.QuestionNumber++;
+            }
+        }
+
         if(_dialogues2 && _interactManager.Interact(Keys.E))
         {
             GameData.Move = true;
@@ -221,7 +234,6 @@ public class Home : IScene {
         }
 
         GameData.previousState = state;
-
     }
 
     public void Draw(SpriteBatch spriteBatch)
