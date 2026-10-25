@@ -33,8 +33,8 @@ public class Game1 : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-        _sceneManager.AddScene(new Menu(GraphicsDevice, _sceneManager, Content), "menu");
-        _sceneManager.ChangeScene("menu");
+        _sceneManager.AddScene(new Menu(GraphicsDevice, _sceneManager, Content), "Menu");
+        _sceneManager.ChangeScene("Menu");
     }
 
     protected override void Update(GameTime gameTime)

@@ -7,7 +7,7 @@ namespace firewood;
 
 public class SecretEnding : IScene
 {
-    private _graphicsDevice _graphicsDevice;
+    private GraphicsDevice _graphicsDevice;
     private ContentManager _contentManager;
     private SceneManager _sceneManager;
 
@@ -27,7 +27,7 @@ public class SecretEnding : IScene
 
     public void Update(GameTime gameTime)
     {
-        Keyboard state = Keyboard.GetState();
+        KeyboardState state = Keyboard.GetState();
 
         if(state.IsKeyDown(Keys.E) && !GameData.previousState.IsKeyDown(Keys.E))
         {
@@ -37,5 +37,20 @@ public class SecretEnding : IScene
         GameData.previousState = state;
     }
 
-    public void Draw()
+    public void Draw(SpriteBatch spriteBatch)
+    {
+        int width = _graphicsDevice.Viewport.Width;
+        int height = _graphicsDevice.Viewport.Height;
+
+        _graphicsDevice.Clear(Color.Gray);
+
+        Vector2 LabelM = _pixelfont.MeasureString("You have frozen to death.");
+        Vector2 Label2M = _pixelfont.MeasureString("Press E to return to the menu.");
+
+        Vector2 Label = new Vector2((width / 2) - (LabelM.X / 2), (height / 2) - (LabelM.Y / 2) - 50);
+        Vector2 Label2 = new Vector2((width / 2) - (Label2M.X / 2), (height / 2) - (Label2M.Y / 2) + 50);
+
+        spriteBatch.DrawString(_pixelfont, "You have frozen to death.", Label, Color.White);
+        spriteBatch.DrawString(_pixelfont, "Press E to return to the menu.", Label2, Color.White);
+    }
 }

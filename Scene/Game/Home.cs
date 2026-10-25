@@ -153,7 +153,7 @@ public class Home : IScene {
 
         if(_isBed && GameData.QuestionNumber == 0 && _interactManager.Interact(Keys.E))
         {
-            
+            _sceneManager.ChangeScene("SecretEnding");
         }
 
         if(_isFurnace && GameData.QuestionNumber == 0 && _interactManager.Interact(Keys.E))

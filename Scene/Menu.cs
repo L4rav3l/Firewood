@@ -83,6 +83,7 @@ public class Menu : IScene {
                 GameData.QuestionNumber = 0;
 
                 _sceneManager.AddScene(new Home(_graphicsDevice, _sceneManager, _contentManager), "Home");
+                _sceneManager.AddScene(new SecretEnding(_graphicsDevice, _sceneManager, _contentManager), "SecretEnding");
                 _sceneManager.ChangeScene("Home");
             } else {
                 GameData.Quit = true;
