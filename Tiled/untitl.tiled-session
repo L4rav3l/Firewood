@@ -1,8 +1,26 @@
 {
-    "activeFile": "",
+    "activeFile": "/home/laravel/Projects/firewood/Content/house.tmx",
     "expandedProjectPaths": [
+        "."
     ],
+    "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "/home/laravel/Projects/firewood/Content/home_tilemap.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/laravel/Projects/firewood/Content/house.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 1007,
+                "y": 762
+            }
+        },
+        "home_tilemap.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
     },
     "last.imagePath": "/home/laravel/Projects/firewood/Tiled",
     "map.height": 30,
@@ -10,9 +28,15 @@
     "map.tileHeight": 64,
     "map.tileWidth": 64,
     "openFiles": [
+        "home_tilemap.tsx",
+        "/home/laravel/Projects/firewood/Content/home_tilemap.tsx",
+        "/home/laravel/Projects/firewood/Content/house.tmx"
     ],
     "project": "untitl.tiled-project",
     "recentFiles": [
+        "home_tilemap.tsx",
+        "/home/laravel/Projects/firewood/Content/home_tilemap.tsx",
+        "/home/laravel/Projects/firewood/Content/house.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {

@@ -1,7 +1,7 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"/home/laravel/Projects/firewood/Content/home_tilemap.png","/home/laravel/Projects/firewood/Content/bin/DesktopGL/Content/home_tilemap.png","CopyItem","File",35040,35040,0.0002232
+"/home/laravel/Projects/firewood/Content/home_tilemap.png","/home/laravel/Projects/firewood/Content/bin/DesktopGL/Content/home_tilemap.png","CopyItem","File",35994,35994,0.000494
 "/home/laravel/Projects/firewood/Content/home_tilemap.tsx","/home/laravel/Projects/firewood/Content/bin/DesktopGL/Content/home_tilemap.tsx","CopyItem","File",236,236,6.64E-05
-"/home/laravel/Projects/firewood/Content/house.tmx","/home/laravel/Projects/firewood/Content/bin/DesktopGL/Content/house.tmx","CopyItem","File",4146,4146,6.18E-05
+"/home/laravel/Projects/firewood/Content/house.tmx","/home/laravel/Projects/firewood/Content/bin/DesktopGL/Content/house.tmx","CopyItem","File",5459,5459,0.0005165
 "/home/laravel/Projects/firewood/Content/pixelfont.spritefont","/home/laravel/Projects/firewood/Content/bin/DesktopGL/Content/pixelfont.xnb","LocalizedFontProcessor","SpriteFontContent",2443,136217,0.4034528
 "/home/laravel/Projects/firewood/Content/PixelifySans-Regular.ttf","/home/laravel/Projects/firewood/Content/bin/DesktopGL/Content/PixelifySans-Regular.ttf","CopyItem","File",51312,51312,0.0005533
 "/home/laravel/Projects/firewood/Content/player.png","/home/laravel/Projects/firewood/Content/bin/DesktopGL/Content/player.png","CopyItem","File",1662,1662,4.98E-05

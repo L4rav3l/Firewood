@@ -68,7 +68,7 @@ public class Player
     {
         screenPos = camera.WorldToScreen(Position - new Vector2(Width / 2, Height / 2));
 
-        spriteBatch.Draw(texture, screenPos, null, Color.White, 0f, Vector2.Zero, 0.4f, SpriteEffects.None, 0.2f);
+        spriteBatch.Draw(texture, screenPos, null, Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0.2f);
     }
 
 }
