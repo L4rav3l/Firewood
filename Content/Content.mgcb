@@ -13,6 +13,15 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin garden_tilemap.png
+/copy:garden_tilemap.png
+
+#begin garden_tilemap.tsx
+/copy:garden_tilemap.tsx
+
+#begin garden.tmx
+/copy:garden.tmx
+
 #begin home_tilemap.png
 /copy:home_tilemap.png
 

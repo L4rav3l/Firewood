@@ -30,16 +30,21 @@ public class Player
         Vector2 oldpos = Position;
 
         Vector2 movement = Vector2.Zero;
-        if(kb.IsKeyDown(Keys.W)) movement.Y -= 1;
-        if(kb.IsKeyDown(Keys.S)) movement.Y += 1;
-        if(kb.IsKeyDown(Keys.A)) movement.X -= 1;
-        if(kb.IsKeyDown(Keys.D)) movement.X += 1;
 
-        if(movement != Vector2.Zero)
+        if(GameData.Move)
         {
-            movement.Normalize();
+            if(kb.IsKeyDown(Keys.W)) movement.Y -= 1;
+            if(kb.IsKeyDown(Keys.S)) movement.Y += 1;
+            if(kb.IsKeyDown(Keys.A)) movement.X -= 1;
+            if(kb.IsKeyDown(Keys.D)) movement.X += 1;
+        
 
-            Position += movement * Speed * dt;
+            if(movement != Vector2.Zero)
+            {
+                movement.Normalize();
+
+                Position += movement * Speed * dt;
+            }
         }
 
         foreach(var solid in solidTiles)

@@ -80,9 +80,12 @@ public class Menu : IScene {
                 GameData.Quests[6] = "Get some wood (5/4)";
                 GameData.Quests[7] = "Go back to the house";
 
+                GameData.Move = true;
+
                 GameData.QuestionNumber = 0;
 
                 _sceneManager.AddScene(new Home(_graphicsDevice, _sceneManager, _contentManager), "Home");
+                _sceneManager.AddScene(new Garden(_graphicsDevice, _sceneManager, _contentManager), "Garden");
                 _sceneManager.AddScene(new SecretEnding(_graphicsDevice, _sceneManager, _contentManager), "SecretEnding");
                 _sceneManager.ChangeScene("Home");
             } else {

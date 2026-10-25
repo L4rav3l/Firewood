@@ -41,3 +41,6 @@
 /home/laravel/Projects/firewood/bin/Debug/net9.0/Content/house.tmx
 /home/laravel/Projects/firewood/bin/Debug/net9.0/Content/player.png
 /home/laravel/Projects/firewood/bin/Debug/net9.0/TiledSharp.dll
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/garden.tmx
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/garden_tilemap.png
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/garden_tilemap.tsx

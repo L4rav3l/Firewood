@@ -21,7 +21,6 @@ public class Home : IScene {
     private SpriteFont _pixelfont;
 
     private TmxMap _map;
-    private Texture2D _tileset;
     private Texture2D _playerTexture;
 
     private List<Rectangle> _solidTiles;
@@ -34,9 +33,17 @@ public class Home : IScene {
     private bool _isBed = false;
     private bool _isChest = false;
     private bool _isDoor = false;
+    private bool _isTurned = false;
+    private bool _startDialogues = true;
+    private bool _doorDialogues = false;
+    private bool _dialogues1 = false;
+    private bool _dialogues2 = false;
+    private bool _dialogues3 = false;
 
     private Player _player;
     private Camera2D _camera;
+
+    private Texture2D _pixelTexture;
 
     public List<Rectangle> LoadObject(string mapFilePath, string name)
     {
@@ -104,6 +111,11 @@ public class Home : IScene {
 
         _pixelfont = _contentManager.Load<SpriteFont>("pixelfont");
         _playerTexture = _contentManager.Load<Texture2D>("player");
+
+        _pixelTexture = new Texture2D(_graphicsDevice, 1, 1);
+        _pixelTexture.SetData(new[] { Color.White });
+
+        GameData.Move = false;
     }
 
     public void Update(GameTime gameTime)
@@ -151,19 +163,61 @@ public class Home : IScene {
             }
         }
 
-        if(_isBed && GameData.QuestionNumber == 0 && _interactManager.Interact(Keys.E))
+        if(_isBed && GameData.QuestionNumber == 0 && _interactManager.Interact(Keys.E) && _isTurned)
         {
             _sceneManager.ChangeScene("SecretEnding");
         }
 
-        if(_isFurnace && GameData.QuestionNumber == 0 && _interactManager.Interact(Keys.E))
+        if(_dialogues1 && _interactManager.Interact(Keys.E))
         {
-            GameData.QuestionNumber++;
+            GameData.Move = true;
+            _isTurned = true;
+            _dialogues1 = false;
         }
 
-        if(_isChest && GameData.QuestionNumber == 1 && _interactManager.Interact(Keys.E))
+        if(_isFurnace && GameData.QuestionNumber == 0 && _interactManager.Interact(Keys.E) && _isTurned)
         {
             GameData.QuestionNumber++;
+            GameData.Move = false;
+            _isTurned = false;
+            _dialogues1 = true;
+        }
+
+        if(_dialogues2 && _interactManager.Interact(Keys.E))
+        {
+            GameData.Move = true;
+            _isTurned = true;
+            _dialogues2 = false;
+        }
+
+        if(_isChest && GameData.QuestionNumber == 1 && _interactManager.Interact(Keys.E) && _isTurned) 
+        {
+            GameData.QuestionNumber++;
+            GameData.Move = false;
+            _isTurned = false;
+            _dialogues2 = true;
+        }
+
+        if(_startDialogues && _interactManager.Interact(Keys.E))
+        {
+            GameData.Move = true;
+            _isTurned = true;
+            _startDialogues = false;
+        }
+
+        if(_doorDialogues && _interactManager.Interact(Keys.E))
+        {
+            GameData.Move = true;
+            _isTurned = true;
+            _doorDialogues = false;
+        } else if(_isDoor && _interactManager.Interact(Keys.E) && GameData.QuestionNumber < 2)
+        {
+            GameData.Move = false;
+            _isTurned = false;
+            _doorDialogues = true;
+        } else if(_isDoor && _interactManager.Interact(Keys.E) && GameData.QuestionNumber >= 2)
+        {
+            _sceneManager.ChangeScene("Garden");
         }
 
         GameData.previousState = state;
@@ -172,7 +226,6 @@ public class Home : IScene {
 
     public void Draw(SpriteBatch spriteBatch)
     {
-
         int mapWidth = _map.Width;
         int mapHeight = _map.Height;
 
@@ -191,26 +244,31 @@ public class Home : IScene {
         Vector2 BedCheckM = _pixelfont.MeasureString("Press E to interact Bed");
         Vector2 BedPosition = new Vector2((Width / 2) - (BedCheckM.X / 4), ((Height / 4) * 3) - (BedCheckM.Y / 2));
 
+        Vector2 ContinueM = _pixelfont.MeasureString("Press E to continue");
+
         _graphicsDevice.Clear(Color.Black);
 
-        if(_isFurnace)
+        if(_isTurned)
         {
-            spriteBatch.DrawString(_pixelfont, "Press E to interact Furnace", FurnacePosition, Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f); 
-        }
+            if(_isFurnace)
+            {
+                spriteBatch.DrawString(_pixelfont, "Press E to interact Furnace", FurnacePosition, Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f); 
+            }
 
-        if(_isBed)
-        {
-            spriteBatch.DrawString(_pixelfont, "Press E to interact Bed", BedPosition, Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f); 
-        }
+            if(_isBed)
+            {
+                spriteBatch.DrawString(_pixelfont, "Press E to interact Bed", BedPosition, Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f); 
+            }
 
-        if(_isChest)
-        {
-            spriteBatch.DrawString(_pixelfont, "Press E to interact Chest", ChestPosition, Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f); 
-        }
+            if(_isChest)
+            {
+                spriteBatch.DrawString(_pixelfont, "Press E to interact Chest", ChestPosition, Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f); 
+            }
 
-        if(_isDoor)
-        {
-            spriteBatch.DrawString(_pixelfont, "Press E to interact Door", DoorPosition, Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f); 
+            if(_isDoor)
+            {
+                spriteBatch.DrawString(_pixelfont, "Press E to interact Door", DoorPosition, Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f); 
+            }
         }
 
         float LayerDeep = 0.01f;
@@ -223,5 +281,34 @@ public class Home : IScene {
 
         _player.Draw(spriteBatch, _playerTexture, _camera);
         _questManager.DrawQuest(GameData.Quests[GameData.QuestionNumber], spriteBatch, _graphicsDevice, _pixelfont);
+        
+        if(!_isTurned)
+        {
+            spriteBatch.Draw(_pixelTexture, new Rectangle(Width / 2 - 300, (Height / 4)* 3 - 100, 600, 100), null, Color.White * 0.1f, 0f, Vector2.Zero, SpriteEffects.None, 0.1f);
+        }
+
+        if(_dialogues1)
+        {
+            spriteBatch.DrawString(_pixelfont, "Ohh, the furnace is burnt out. I need some wood.", new Vector2(Width / 2 - 285, (Height / 4) * 3 - 75), Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+            spriteBatch.DrawString(_pixelfont, "Press E to continue", new Vector2(Width / 2 - ContinueM.X / 4, (Height / 4) * 3 - 15 - ContinueM.Y / 2), Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+        }
+
+        if(_dialogues2)
+        {
+            spriteBatch.DrawString(_pixelfont, "It is empty. I need to search wood in forest.", new Vector2(Width / 2 - 265, (Height / 4) * 3 - 75), Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+            spriteBatch.DrawString(_pixelfont, "Press E to continue", new Vector2(Width / 2 - ContinueM.X / 4, (Height / 4) * 3 - 15 - ContinueM.Y / 2), Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+        }
+
+        if(_startDialogues)
+        {
+            spriteBatch.DrawString(_pixelfont, "I feel cold. I think I need to see the furnace.", new Vector2(Width / 2 - 265, (Height / 4) * 3 - 75), Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+            spriteBatch.DrawString(_pixelfont, "Press E to continue", new Vector2(Width / 2 - ContinueM.X / 4, (Height / 4) * 3 - 15 - ContinueM.Y / 2), Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+        }
+
+        if(_doorDialogues)
+        {
+            spriteBatch.DrawString(_pixelfont, "Outside is very cold. Come back later.", new Vector2(Width / 2 - 225, (Height / 4) * 3 - 75), Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+            spriteBatch.DrawString(_pixelfont, "Press E to continue", new Vector2(Width / 2 - ContinueM.X / 4, (Height / 4) * 3 - 15 - ContinueM.Y / 2), Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f);
+        }
     }
 }

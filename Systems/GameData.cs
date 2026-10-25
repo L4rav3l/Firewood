@@ -9,4 +9,5 @@ public static class GameData
     public static string[] Quests;
     public static int QuestionNumber;
     public static bool Quit;
+    public static bool Move;
 }

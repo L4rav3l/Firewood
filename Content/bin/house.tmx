@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="64" tileheight="64" infinite="0" nextlayerid="6" nextobjectid="9">
+<map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" width="30" height="30" tilewidth="64" tileheight="64" infinite="0" nextlayerid="12" nextobjectid="34">
  <tileset firstgid="1" source="../Tiled/home_tilemap.tsx"/>
  <layer id="3" name="House" width="30" height="30">
   <data encoding="csv">
@@ -15,9 +15,9 @@
 0,0,0,0,0,0,0,0,0,0,0,4,5,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,4,1,1,1,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,4,1,1,1,1,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,4,2,3,1,1,1,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,4,2,3,1,1,1,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,4,1,1,1,1,1,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,4,2,3,1,1,1,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,4,2,3,1,1,1,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,4,1,1,1,1,1,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -69,14 +69,29 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="7" name="Furnace">
+  <object id="30" x="962" y="736" width="62" height="66"/>
+  <object id="31" x="916" y="704" width="44" height="100"/>
+ </objectgroup>
  <objectgroup id="5" name="Collision">
-  <object id="1" x="702.667" y="574" width="193.333" height="66"/>
-  <object id="2" x="896" y="640" width="128" height="64"/>
-  <object id="3" x="1024" y="704" width="64" height="256"/>
-  <object id="4" x="960" y="960" width="64" height="64"/>
+  <object id="1" x="704" y="512" width="193.333" height="66"/>
+  <object id="2" x="896" y="640" width="170" height="64"/>
+  <object id="3" x="1024" y="702" width="64" height="256"/>
+  <object id="4" x="960" y="960" width="102" height="64"/>
   <object id="5" x="640" y="1024" width="320" height="64"/>
   <object id="6" x="576" y="768" width="64" height="256"/>
-  <object id="7" x="640" y="640" width="64" height="128"/>
-  <object id="8" x="960" y="704" width="64" height="64"/>
+  <object id="7" x="640" y="640" width="64" height="84"/>
+  <object id="28" x="960" y="896" width="64" height="64"/>
+  <object id="29" x="960" y="704" width="64" height="32"/>
+ </objectgroup>
+ <objectgroup id="9" name="Chest">
+  <object id="32" x="930" y="862" width="94" height="34"/>
+  <object id="33" x="930" y="894" width="30" height="66"/>
+ </objectgroup>
+ <objectgroup id="10" name="Door">
+  <object id="18" x="770" y="604" width="64" height="64"/>
+ </objectgroup>
+ <objectgroup id="11" name="Bed">
+  <object id="25" x="658" y="804" width="82" height="66"/>
  </objectgroup>
 </map>
