@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("firewood")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9a6e601db9b24f30f40d9b68995a6f84334b96c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15576e0aebf437f9274accbb2f58fe236c8fcf55")]
 [assembly: System.Reflection.AssemblyProductAttribute("firewood")]
 [assembly: System.Reflection.AssemblyTitleAttribute("firewood")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -69,6 +69,19 @@ public class Menu : IScene {
         if(state.IsKeyDown(Keys.Enter) && !GameData.previousState.IsKeyDown(Keys.Enter)) 
         {
             if(_Selected == 0) {
+
+                GameData.Quests = new string[8];
+                GameData.Quests[0] = "You are cold. Check your furnace";
+                GameData.Quests[1] = "Find some firewoods in chest.";
+                GameData.Quests[2] = "Get some wood (5/0)";
+                GameData.Quests[3] = "Get some wood (5/1)";
+                GameData.Quests[4] = "Get some wood (5/2)";
+                GameData.Quests[5] = "Get some wood (5/3)";
+                GameData.Quests[6] = "Get some wood (5/4)";
+                GameData.Quests[7] = "Go back to the house";
+
+                GameData.QuestionNumber = 0;
+
                 _sceneManager.AddScene(new Home(_graphicsDevice, _sceneManager, _contentManager), "Home");
                 _sceneManager.ChangeScene("Home");
             } else {

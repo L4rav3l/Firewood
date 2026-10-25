@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,6 +14,9 @@ public class Home : IScene {
     private GraphicsDevice _graphicsDevice;
     private ContentManager _contentManager;
     private SceneManager _sceneManager;
+    private MapManager _mapManager;
+    private QuestManager _questManager;
+    private InteractManager _interactManager;
 
     private SpriteFont _pixelfont;
 
@@ -72,11 +76,22 @@ public class Home : IScene {
 
     public void LoadContent()
     {
+        _map = new TmxMap("Content/house.tmx");
+
+        var dict = new Dictionary<int, Texture2D>();
+
+        foreach (var ts in _map.Tilesets)
+        {
+            string asset = Path.GetFileNameWithoutExtension(ts.Image.Source);
+            dict[ts.FirstGid] = _contentManager.Load<Texture2D>(asset);
+        }
+
+        _mapManager = new MapManager(_map, dict);
+        _questManager = new QuestManager();
+        _interactManager = new InteractManager();
+
         _player = new Player(new Vector2(672, 864));
         _camera = new Camera2D(_graphicsDevice.Viewport);
-
-        _tileset = _contentManager.Load<Texture2D>("home_tilemap");
-        _map = new TmxMap("Content/house.tmx");
 
         _solidTiles = new List<Rectangle>();
         _chestTiles = new List<Rectangle>();
@@ -100,6 +115,9 @@ public class Home : IScene {
         _isBed = false;
         _isChest = false;
         _isDoor = false;
+
+        KeyboardState state = Keyboard.GetState();
+        _interactManager.Update();
 
         foreach(Rectangle furnace in _furnaceTiles)
         {
@@ -133,6 +151,23 @@ public class Home : IScene {
             }
         }
 
+        if(_isBed && GameData.QuestionNumber == 0 && _interactManager.Interact(Keys.E))
+        {
+            
+        }
+
+        if(_isFurnace && GameData.QuestionNumber == 0 && _interactManager.Interact(Keys.E))
+        {
+            GameData.QuestionNumber++;
+        }
+
+        if(_isChest && GameData.QuestionNumber == 1 && _interactManager.Interact(Keys.E))
+        {
+            GameData.QuestionNumber++;
+        }
+
+        GameData.previousState = state;
+
     }
 
     public void Draw(SpriteBatch spriteBatch)
@@ -158,47 +193,6 @@ public class Home : IScene {
 
         _graphicsDevice.Clear(Color.Black);
 
-        for(int layerIndex = 0; layerIndex < _map.Layers.Count; layerIndex++)
-        {
-            for(int y = 0; y < mapHeight; y++)
-            {
-                for(int x = 0; x < mapWidth; x++)
-                {
-                    int i = y * mapWidth + x;
-
-                    if(i >= _map.Layers[layerIndex].Tiles.Count)
-                    {
-                        continue;
-                    }
-
-                    var tile = _map.Layers[layerIndex].Tiles[i];
-
-                        if(tile.Gid == 0)
-                        {
-                            continue;
-                        }
-
-                    int tilesPerRow = _tileset.Width / _map.TileWidth;
-                    int tileIndex = tile.Gid - 1;
-
-                    int tileIndexX = tileIndex % tilesPerRow;
-                    int tileIndexY = tileIndex / tilesPerRow;
-
-                    Rectangle source = new Rectangle(
-                        tileIndexX * _map.TileWidth,
-                        tileIndexY * _map.TileHeight,
-                        _map.TileWidth,
-                        _map.TileHeight
-                    );
-
-                    Vector2 worldPosition = new Vector2(x * _map.TileWidth, y * _map.TileHeight);
-                    Vector2 screenPosition = _camera.WorldToScreen(worldPosition);
-
-                    spriteBatch.Draw(_tileset, screenPosition, source, Color.White);
-                }
-            }
-        }
-
         if(_isFurnace)
         {
             spriteBatch.DrawString(_pixelfont, "Press E to interact Furnace", FurnacePosition, Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f); 
@@ -219,6 +213,15 @@ public class Home : IScene {
             spriteBatch.DrawString(_pixelfont, "Press E to interact Door", DoorPosition, Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f); 
         }
 
+        float LayerDeep = 0.01f;
+
+        foreach(var layer in _map.Layers)
+        {
+            _mapManager.DrawLayer(layer, spriteBatch, LayerDeep, _camera);
+            LayerDeep+=0.01f;
+        }
+
         _player.Draw(spriteBatch, _playerTexture, _camera);
+        _questManager.DrawQuest(GameData.Quests[GameData.QuestionNumber], spriteBatch, _graphicsDevice, _pixelfont);
     }
 }
