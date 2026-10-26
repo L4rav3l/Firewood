@@ -4,9 +4,19 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>/home/laravel/Projects/firewood/Content/fire.ogg</File>
+    <File>/home/laravel/Projects/firewood/Content/fire2.ogg</File>
     <File>/home/laravel/Projects/firewood/Content/pixelfont.spritefont</File>
+    <File>/home/laravel/Projects/firewood/Content/wind.ogg</File>
+    <File>/home/laravel/Projects/firewood/Content/wood.ogg</File>
+    <File>/home/laravel/Projects/firewood/Content/yawn.ogg</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

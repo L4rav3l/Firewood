@@ -1,4 +1,6 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"/home/laravel/Projects/firewood/Content/fire.ogg","/home/laravel/Projects/firewood/Content/bin/fire.xnb","SoundEffectProcessor","SoundEffectContent",40035,889449,0.2158405
+"/home/laravel/Projects/firewood/Content/fire2.ogg","/home/laravel/Projects/firewood/Content/bin/fire2.xnb","SongProcessor","SongContent",352630,123,0.3330521
 "/home/laravel/Projects/firewood/Content/garden_tilemap.png","/home/laravel/Projects/firewood/Content/bin/garden_tilemap.png","CopyItem","File",29680,29680,0.0003407
 "/home/laravel/Projects/firewood/Content/garden_tilemap.tsx","/home/laravel/Projects/firewood/Content/bin/garden_tilemap.tsx","CopyItem","File",240,240,0.0001223
 "/home/laravel/Projects/firewood/Content/garden.tmx","/home/laravel/Projects/firewood/Content/bin/garden.tmx","CopyItem","File",74880,74880,0.0002173
@@ -8,4 +10,6 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "/home/laravel/Projects/firewood/Content/pixelfont.spritefont","/home/laravel/Projects/firewood/Content/bin/pixelfont.xnb","LocalizedFontProcessor","SpriteFontContent",2443,136217,0.1935753
 "/home/laravel/Projects/firewood/Content/PixelifySans-Regular.ttf","/home/laravel/Projects/firewood/Content/bin/PixelifySans-Regular.ttf","CopyItem","File",51312,51312,9.5E-05
 "/home/laravel/Projects/firewood/Content/player.png","/home/laravel/Projects/firewood/Content/bin/player.png","CopyItem","File",1662,1662,0.0001164
-"/home/laravel/Projects/firewood/Content/yawn.mp3","/home/laravel/Projects/firewood/Content/bin/yawn.mp3","CopyItem","File",35108,35108,6.53E-05
+"/home/laravel/Projects/firewood/Content/wind.ogg","/home/laravel/Projects/firewood/Content/bin/wind.xnb","SongProcessor","SongContent",175137,122,0.2237967
+"/home/laravel/Projects/firewood/Content/wood.ogg","/home/laravel/Projects/firewood/Content/bin/wood.xnb","SoundEffectProcessor","SoundEffectContent",7735,75369,0.1649392
+"/home/laravel/Projects/firewood/Content/yawn.ogg","/home/laravel/Projects/firewood/Content/bin/yawn.xnb","SoundEffectProcessor","SoundEffectContent",15133,193641,0.0442416

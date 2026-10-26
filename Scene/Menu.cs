@@ -89,6 +89,7 @@ public class Menu : IScene {
                 _sceneManager.AddScene(new Home(_graphicsDevice, _sceneManager, _contentManager), "Home");
                 _sceneManager.AddScene(new Garden(_graphicsDevice, _sceneManager, _contentManager), "Garden");
                 _sceneManager.AddScene(new SecretEnding(_graphicsDevice, _sceneManager, _contentManager), "SecretEnding");
+                _sceneManager.AddScene(new Ending(_graphicsDevice, _sceneManager, _contentManager), "Ending");
                 _sceneManager.ChangeScene("Home");
             } else {
                 GameData.Quit = true;

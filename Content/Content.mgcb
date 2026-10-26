@@ -13,6 +13,20 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin fire.ogg
+/importer:OggImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.6.0
+/build:fire.ogg
+
+#begin fire2.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.6.0
+/build:fire2.ogg
+
 #begin garden_tilemap.png
 /copy:garden_tilemap.png
 
@@ -45,6 +59,24 @@
 #begin player.png
 /copy:player.png
 
-#begin yawn.mp3
-/copy:yawn.mp3
+#begin wind.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.6.0
+/build:wind.ogg
+
+#begin wood.ogg
+/importer:OggImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.6.0
+/build:wood.ogg
+
+#begin yawn.ogg
+/importer:OggImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/processorParam:Version=3.8.6.0
+/build:yawn.ogg
 

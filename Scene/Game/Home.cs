@@ -5,6 +5,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 using TiledSharp;
 
 namespace firewood;
@@ -19,7 +21,10 @@ public class Home : IScene {
     private InteractManager _interactManager;
 
     private SpriteFont _pixelfont;
-    private Song _yawn;
+    private SoundEffect _yawn;
+    private SoundEffect _fire;
+    private Song _fire2;
+    private Song _wind;
 
     private TmxMap _map;
     private Texture2D _playerTexture;
@@ -31,6 +36,8 @@ public class Home : IScene {
     private List<Rectangle> _chestTiles;
 
     private int _drop = 0;
+
+    private bool _isFirst = true;
 
     private bool _isFurnace = false;
     private bool _isBed = false;
@@ -112,11 +119,17 @@ public class Home : IScene {
         _furnaceTiles = LoadObject("Content/house.tmx", "Furnace");
 
         _pixelfont = _contentManager.Load<SpriteFont>("pixelfont");
-        _yawn = _contentManager.Load<Song>("yawn");
+        _yawn = _contentManager.Load<SoundEffect>("yawn");
+        _fire = _contentManager.Load<SoundEffect>("fire");
         _playerTexture = _contentManager.Load<Texture2D>("player");
+        _fire2 = _contentManager.Load<Song>("fire2");
+        _wind = _contentManager.Load<Song>("wind");
 
         _pixelTexture = new Texture2D(_graphicsDevice, 1, 1);
         _pixelTexture.SetData(new[] { Color.White });
+
+        MediaPlayer.Play(_fire2);
+        MediaPlayer.IsRepeating = true;
 
         GameData.Move = false;
     }
@@ -125,6 +138,8 @@ public class Home : IScene {
     {
         _player.Update(gameTime, _solidTiles, _camera);
         _camera.Follow(_player.Position, new Vector2(_map.Width * 64, _map.Height * 64));
+
+        GameData.Timer = 30000;
 
         _isFurnace = false;
         _isBed = false;
@@ -166,9 +181,20 @@ public class Home : IScene {
             }
         }
 
+        if(_isFirst)
+        {
+            _isFirst = false;
+            _yawn.Play();
+        }
+
         if(_isBed && GameData.QuestionNumber == 0 && _interactManager.Interact(Keys.E) && _isTurned)
         {
             _sceneManager.ChangeScene("SecretEnding");
+        }
+
+        if(_isBed && GameData.QuestionNumber == 9 && _interactManager.Interact(Keys.E) && _isTurned)
+        {
+            _sceneManager.ChangeScene("Ending");
         }
 
         if(_dialogues1 && _interactManager.Interact(Keys.E))
@@ -188,6 +214,7 @@ public class Home : IScene {
 
         if(_isFurnace && GameData.QuestionNumber == 8 && _interactManager.Interact(Keys.E) && _isTurned)
         {
+            _fire.Play();
             _drop++;
 
             if(_drop >= 5)
@@ -230,6 +257,7 @@ public class Home : IScene {
             _doorDialogues = true;
         } else if(_isDoor && _interactManager.Interact(Keys.E) && GameData.QuestionNumber >= 2)
         {
+            MediaPlayer.Play(_wind);
             _sceneManager.ChangeScene("Garden");
         }
 

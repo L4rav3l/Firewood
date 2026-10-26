@@ -5,6 +5,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 using TiledSharp;
 
 namespace firewood;
@@ -41,8 +43,6 @@ public class Garden : IScene {
     private List<Rectangle> _wood5Tiles;
     private bool _inWood5 = false;
 
-    private float _timer = 240000;
-
     private bool _isWood1 = true;
     private bool _isWood2 = true;
     private bool _isWood3 = true;
@@ -50,6 +50,10 @@ public class Garden : IScene {
     private bool _isWood5 = true;
 
     private bool _isDoor = false;
+
+    private SoundEffect _wood;
+    private Song _wind;
+    private Song _fire2;
 
     private Player _player;
     private Camera2D _camera;
@@ -116,6 +120,10 @@ public class Garden : IScene {
         _wood4Tiles = LoadObject("Content/garden.tmx", "Wood4");
         _wood5Tiles = LoadObject("Content/garden.tmx", "Wood5");
 
+        _wood = _contentManager.Load<SoundEffect>("wood");
+        _wind = _contentManager.Load<Song>("wind");
+        _fire2 = _contentManager.Load<Song>("fire2");
+
         _doorTiles = LoadObject("Content/garden.tmx", "Home");
 
         _pixelfont = _contentManager.Load<SpriteFont>("pixelfont");
@@ -129,9 +137,9 @@ public class Garden : IScene {
 
         float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds * 1000;
 
-        if(_timer >= 0)
+        if(GameData.Timer >= 0)
         {
-            _timer -= elapsed;
+            GameData.Timer -= (int)elapsed;
         } else {
             _sceneManager.ChangeScene("SecretEnding");
         }
@@ -205,30 +213,35 @@ public class Garden : IScene {
 
         if(_inWood1 && _isWood1 && _interactManager.Interact(Keys.E))
         {
+            _wood.Play();
             _isWood1 = false;
             GameData.QuestionNumber++;
         }
 
         if(_inWood2 && _isWood2 && _interactManager.Interact(Keys.E))
         {
+            _wood.Play();
             _isWood2 = false;
             GameData.QuestionNumber++;
         }
 
         if(_inWood3 && _isWood3 && _interactManager.Interact(Keys.E))
         {
+            _wood.Play();
             _isWood3 = false;
             GameData.QuestionNumber++;
         }
 
         if(_inWood4 && _isWood4 && _interactManager.Interact(Keys.E))
         {
+            _wood.Play();
             _isWood4 = false;
             GameData.QuestionNumber++;
         }
 
         if(_inWood5 && _isWood5 && _interactManager.Interact(Keys.E))
         {
+            _wood.Play();
             _isWood5 = false;
             GameData.QuestionNumber++;
         }
@@ -240,6 +253,7 @@ public class Garden : IScene {
                 GameData.QuestionNumber++;
             }
 
+            MediaPlayer.Play(_fire2);
             _sceneManager.ChangeScene("Home");
         }
 
@@ -259,6 +273,9 @@ public class Garden : IScene {
 
         Vector2 EnterM = _pixelfont.MeasureString("Press E to go back to the house");
         Vector2 Enter = new Vector2((Width / 2) - (EnterM.X / 4), ((EnterM.Y / 4) * 3) - (PickupM.Y / 2));
+
+        Vector2 TimerM = _pixelfont.MeasureString((GameData.Timer / 1000).ToString());
+        Vector2 Timer = new Vector2(50, 25);
 
         _graphicsDevice.Clear(Color.Black);
 
@@ -297,6 +314,9 @@ public class Garden : IScene {
         {
             spriteBatch.DrawString(_pixelfont, "Press E to go back to the house", Pickup, Color.White, 0f, Vector2.Zero, 0.5f, SpriteEffects.None, 1f); 
         }
+
+        spriteBatch.DrawString(_pixelfont, (GameData.Timer / 1000).ToString(), Timer, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 1f);
+
     }
 
 }

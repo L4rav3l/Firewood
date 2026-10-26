@@ -44,3 +44,14 @@
 /home/laravel/Projects/firewood/bin/Debug/net9.0/Content/garden.tmx
 /home/laravel/Projects/firewood/bin/Debug/net9.0/Content/garden_tilemap.png
 /home/laravel/Projects/firewood/bin/Debug/net9.0/Content/garden_tilemap.tsx
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/yawn.mp3
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/yawn.ogg
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/yawn.xnb
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/fire.ogg
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/fire.xnb
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/wood.ogg
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/wood.xnb
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/wind.ogg
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/wind.xnb
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/fire2.ogg
+/home/laravel/Projects/firewood/bin/Debug/net9.0/Content/fire2.xnb

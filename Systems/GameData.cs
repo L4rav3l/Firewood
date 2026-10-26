@@ -10,4 +10,5 @@ public static class GameData
     public static int QuestionNumber;
     public static bool Quit;
     public static bool Move;
+    public static int Timer;
 }
