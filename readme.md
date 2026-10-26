@@ -1,12 +1,12 @@
 ## About project
 
-In this game, you live in a forest, and you woke up because you feel cold. You need to go search some firewood in Outside.
+In this game, you live in a forest and wake up because you feel cold. You need to go outside to search for some firewood.
 
 ## Stack
 C# Monogame
 
 ## Demo video
-cooming soon...
+https://www.youtube.com/watch?v=8inNnhmEWbk
 
 ## Build command
 
